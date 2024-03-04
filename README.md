@@ -17,7 +17,7 @@ This project is a Java-based Library Management System utilizing Hibernate for d
 To get a local copy up and running, follow these steps:
 
 1.Clone the repository:
-
+  - https://github.com/SithiraRoneth/ORM-CW.git
 
 2.Setup Database:
   - Install MySQL or any other supported database.
