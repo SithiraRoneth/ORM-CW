@@ -41,5 +41,6 @@ public class DashBordController {
 
     @FXML
     void TransactionPage(MouseEvent mouseEvent) {
+
     }
 }
