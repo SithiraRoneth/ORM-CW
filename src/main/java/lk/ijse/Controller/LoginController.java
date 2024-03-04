@@ -42,6 +42,7 @@ public class LoginController {
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
         primaryStage.setTitle("Dashboard");
+
     }
 
     @FXML
