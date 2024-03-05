@@ -1,6 +1,6 @@
 /* Created By Sithira Roneth
- * Date :3/4/24
- * Time :12:14
+ * Date :3/5/24
+ * Time :11:50
  * Project Name :ORM
  * */
 package lk.ijse.Controller;
@@ -15,12 +15,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class BookController {
+public class SettingController {
     @FXML
     private AnchorPane rootNode;
 
     @FXML
-     void HomePage(MouseEvent mouseEvent) throws IOException {
+    void HomePage(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) rootNode.getScene().getWindow();

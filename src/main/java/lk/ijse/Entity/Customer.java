@@ -30,6 +30,6 @@ public class Customer {
     private String address;
     @Column(name = "contact")
     private int contact;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "student")
+    //@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "transaction")
     private List<Transaction> reservations = new ArrayList<>();
 }

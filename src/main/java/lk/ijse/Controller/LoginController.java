@@ -17,8 +17,8 @@ import lk.ijse.BO.BOFactory;
 import lk.ijse.BO.Custom.UserBO;
 import lk.ijse.Dto.UserDTO;
 
+import java.awt.*;
 import java.io.IOException;
-
 public class LoginController {
     @FXML
     private AnchorPane root;
@@ -26,23 +26,36 @@ public class LoginController {
     private JFXTextField txtPw;
     @FXML
     private JFXTextField txtMail;
+    @FXML
+    private Label lblMail;
+    @FXML
+    private Label lblPw;
+
     UserBO userBO = (UserBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.USER);
 
     @FXML
      void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
+
         String mail = txtMail.getText();
         String pw = txtPw.getText();
 
         var dto = new UserDTO(mail,pw);
-       // UserDTO isCheck = userBO.getUser(dto);
+        UserDTO isCheck = userBO.getUser(dto);
+        if (isCheck.getMail().equals(mail)) {
+            if (isCheck.getPassword().equals(pw)){
+                Parent rootNode = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));
+                Scene scene = new Scene(rootNode);
+                Stage primaryStage = (Stage) root.getScene().getWindow();
+                primaryStage.setScene(scene);
+                primaryStage.centerOnScreen();
+                primaryStage.setTitle("Dashboard");
+            }else{
+                lblPw.setText("Invalid Password \uD83D\uDD12");
 
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));
-        Scene scene = new Scene(rootNode);
-        Stage primaryStage = (Stage) root.getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.centerOnScreen();
-        primaryStage.setTitle("Dashboard");
-
+            }
+        }else {
+            lblMail.setText("Invalid Mail \uD83D\uDD12");
+        }
     }
 
     @FXML

@@ -18,7 +18,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        USER,CUSTOMER,BOOK,TRANSACTION,QUERY
+        USER,CUSTOMER,BOOK,TRANSACTION
     }
 
     public SuperDAO getDAO (DAOTypes daoTypes) {
@@ -30,8 +30,6 @@ public class DAOFactory {
             case BOOK:
                 return null;
             case TRANSACTION:
-                return null;
-            case QUERY:
                 return null;
             default:
                 return null;
