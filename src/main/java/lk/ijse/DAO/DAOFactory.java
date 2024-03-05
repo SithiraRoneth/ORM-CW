@@ -5,7 +5,7 @@
  * */
 package lk.ijse.DAO;
 
-import lk.ijse.BO.Custom.impl.UserBOImpl;
+import lk.ijse.DAO.Custom.Impl.UserDAOImpl;
 
 public class DAOFactory {
     private static DAOFactory factory;
@@ -24,8 +24,7 @@ public class DAOFactory {
     public SuperDAO getDAO (DAOTypes daoTypes) {
         switch (daoTypes) {
             case USER:
-               // new UserBOImpl();
-                return null;
+               new UserDAOImpl();
             case CUSTOMER:
                 return null;
             case BOOK:
