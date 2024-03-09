@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.BO.BOFactory;
@@ -21,15 +22,16 @@ import java.awt.*;
 import java.io.IOException;
 public class LoginController {
     @FXML
+    private Label lblPw;
+    @FXML
+    private Label lblMail;
+    @FXML
     private AnchorPane root;
     @FXML
     private JFXTextField txtPw;
     @FXML
     private JFXTextField txtMail;
-    @FXML
-    private Label lblMail;
-    @FXML
-    private Label lblPw;
+
 
     UserBO userBO = (UserBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.USER);
 

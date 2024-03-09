@@ -22,7 +22,7 @@ public class BOFactory {
     public SuperBO getBO(BOTypes boTypes) {
         switch (boTypes) {
             case USER:
-                new UserBOImpl();
+               return new UserBOImpl();
             case CUSTOMER:
                 return null;
             case BOOK:

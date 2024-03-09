@@ -31,17 +31,31 @@ public class DashBordController {
     }
 
     @FXML
-    void CustomerPage(MouseEvent event) {
-
+    void CustomerPage(MouseEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/View/customer.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage primaryStage = (Stage) root.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
+        primaryStage.setTitle("Customer");
     }
 
     @FXML
-    void SettingPage(MouseEvent event) {
-
+    void TransactionPage(MouseEvent mouseEvent) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/View/transaction.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage primaryStage = (Stage) root.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
+        primaryStage.setTitle("Transaction");
     }
-
     @FXML
-    void TransactionPage(MouseEvent mouseEvent) {
-
+    void SettingPage(MouseEvent event) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/View/setting.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage primaryStage = (Stage) root.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
+        primaryStage.setTitle("Setting");
     }
 }

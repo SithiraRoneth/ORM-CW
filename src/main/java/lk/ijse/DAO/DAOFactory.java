@@ -24,7 +24,7 @@ public class DAOFactory {
     public SuperDAO getDAO (DAOTypes daoTypes) {
         switch (daoTypes) {
             case USER:
-               new UserDAOImpl();
+               return new UserDAOImpl();
             case CUSTOMER:
                 return null;
             case BOOK:

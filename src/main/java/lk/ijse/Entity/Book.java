@@ -26,6 +26,6 @@ public class Book {
     private String name;
     @Column(name = "book_type")
     private String type;
-   // @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "room")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "book")
     private List<Transaction> reservations = new ArrayList<>();
 }
