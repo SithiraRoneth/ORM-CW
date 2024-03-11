@@ -1,5 +1,7 @@
 package lk.ijse.DAO.Custom.Impl;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
 import javafx.scene.control.Alert;
 import lk.ijse.Config.FactoryConfiguration;
 import lk.ijse.DAO.Custom.CustomerDAO;
@@ -60,12 +62,35 @@ public class CustomerDAOImpl implements CustomerDAO {
 
     @Override
     public List<Customer> getAll() {
-        return null;
+        try {
+            Transaction transaction = session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Customer> query = criteriaBuilder.createQuery(Customer.class);
+            query.from(Customer.class);
+            List<Customer> resultList = session.createQuery(query).getResultList();
+            transaction.commit();
+            return resultList;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
     public Customer getItem(String id) {
-        return null;
+        try {
+            Transaction transaction = session.beginTransaction();
+            Customer customer = session.get(Customer.class,id);
+            transaction.commit();
+            return customer;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
     }
 
     @Override

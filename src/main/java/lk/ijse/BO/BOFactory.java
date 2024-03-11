@@ -5,6 +5,7 @@
  * */
 package lk.ijse.BO;
 
+import lk.ijse.BO.Custom.impl.BookBOImpl;
 import lk.ijse.BO.Custom.impl.UserBOImpl;
 
 public class BOFactory {
@@ -26,7 +27,7 @@ public class BOFactory {
             case CUSTOMER:
                 return null;
             case BOOK:
-                return null;
+                return new BookBOImpl();
             case TRANSACTION:
                 return null;
             default:

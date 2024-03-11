@@ -1,8 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="588.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.BookController">
-
+<AnchorPane fx:id="rootNode" prefHeight="588.0" prefWidth="862.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.BookController">
+   <children>
+      <ImageView fitHeight="570.0" fitWidth="672.0" layoutX="95.0" layoutY="9.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/book-cover.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="93.0" fitWidth="104.0" layoutX="744.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/gif/book.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="83.0" fitWidth="57.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#HomePage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/gif/home.gif" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="bookID" layoutX="71.0" layoutY="199.0" prefHeight="26.0" prefWidth="170.0" />
+      <JFXTextField fx:id="B_Name" layoutX="71.0" layoutY="281.0" prefHeight="26.0" prefWidth="170.0" />
+      <Text layoutX="66.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ID" />
+      <Text layoutX="66.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <JFXComboBox fx:id="cmbType" layoutX="70.0" layoutY="359.0" prefHeight="26.0" prefWidth="170.0" />
+      <Text layoutX="66.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
+      <JFXButton layoutX="56.0" layoutY="449.0" onAction="#saveOnAction" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #6196A6; -fx-background-radius: 25;" text="Save" textFill="WHITE" />
+      <JFXButton layoutX="147.0" layoutY="448.0" onAction="#updateOnAction" prefHeight="38.0" prefWidth="70.0" style="-fx-background-radius: 25; -fx-background-color: #D2D180;" text="Update" textFill="#f2f2f2" />
+      <JFXButton layoutX="241.0" layoutY="448.0" onAction="#deleteOnAction" prefHeight="38.0" prefWidth="70.0" style="-fx-background-radius: 25; -fx-background-color: #D37676;" text="Delete" textFill="#f2f2f2" />
+      <TableView fx:id="tblBook" layoutX="431.0" layoutY="126.0" prefHeight="402.0" prefWidth="403.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="100.79998779296875" text="Book ID" />
+          <TableColumn fx:id="colName" prefWidth="172.79998779296875" text="Name" />
+            <TableColumn fx:id="colType" prefWidth="128.800048828125" text="Type" />
+        </columns>
+      </TableView>
+      <TextField fx:id="search" layoutX="46.0" layoutY="97.0" prefHeight="26.0" prefWidth="170.0" promptText="search" />
+      <JFXButton layoutX="164.0" layoutY="97.0" onAction="#searchOnAction" style="-fx-background-color: blue;" text="Search" textFill="#f7f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
 </AnchorPane>

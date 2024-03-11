@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootNode" prefHeight="588.0" prefWidth="862.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.TransactionController">
+   <children>
+      <ImageView fitHeight="83.0" fitWidth="57.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#HomePage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/gif/home.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="136.0" layoutX="748.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/gif/transaction.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

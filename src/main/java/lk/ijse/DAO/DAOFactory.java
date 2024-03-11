@@ -5,6 +5,7 @@
  * */
 package lk.ijse.DAO;
 
+import lk.ijse.DAO.Custom.Impl.BookDAOImpl;
 import lk.ijse.DAO.Custom.Impl.UserDAOImpl;
 
 public class DAOFactory {
@@ -28,7 +29,7 @@ public class DAOFactory {
             case CUSTOMER:
                 return null;
             case BOOK:
-                return null;
+                return new BookDAOImpl();
             case TRANSACTION:
                 return null;
             default:

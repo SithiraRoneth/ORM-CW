@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
@@ -22,12 +21,10 @@ import java.io.IOException;
 
 public class CustomerController {
     @FXML
-    private AnchorPane rootNode;
-    @FXML
-    private JFXTextField address;
+    private JFXTextField NIc;
 
     @FXML
-    private DatePicker birthday;
+    private JFXTextField address;
 
     @FXML
     private TableColumn<?, ?> colAddress;
@@ -36,13 +33,10 @@ public class CustomerController {
     private TableColumn<?, ?> colContact;
 
     @FXML
-    private TableColumn<?, ?> colDOB;
-
-    @FXML
-    private TableColumn<?, ?> colGender;
-
-    @FXML
     private TableColumn<?, ?> colId;
+
+    @FXML
+    private TableColumn<?, ?> colNIC;
 
     @FXML
     private TableColumn<?, ?> colName;
@@ -54,13 +48,14 @@ public class CustomerController {
     private JFXTextField cus_id;
 
     @FXML
-    private JFXTextField gender;
-
-    @FXML
     private JFXTextField name;
 
     @FXML
+    private AnchorPane rootNode;
+
+    @FXML
     private TableView<?> tblCustomer;
+
 
     @FXML
     void HomePage(MouseEvent mouseEvent) throws IOException {

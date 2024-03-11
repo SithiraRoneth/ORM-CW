@@ -28,4 +28,10 @@ public class Book {
     private String type;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "book")
     private List<Transaction> reservations = new ArrayList<>();
+
+    public Book(String id,String name,String type){
+        this.id = id;
+        this.name = name;
+        this.type = type;
+    }
 }
