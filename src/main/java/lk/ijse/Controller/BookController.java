@@ -57,7 +57,7 @@ public class BookController {
         setType();
     }
     private void setType() {
-        cmbType.getItems().setAll("Education","Novel","Love","Series");
+        cmbType.getItems().setAll("Education","Novel","Love","Series","Thriller","History","Fantasy");
     }
 
     @FXML

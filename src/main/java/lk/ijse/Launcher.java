@@ -20,7 +20,7 @@ public class Launcher extends Application {
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/View/dash-board.fxml")));
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.initStyle(StageStyle.UNDECORATED);
+       /* stage.initStyle(StageStyle.UNDECORATED);*/
         stage.show();
     }
 }
