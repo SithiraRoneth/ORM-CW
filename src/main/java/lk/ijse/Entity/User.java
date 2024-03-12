@@ -1,27 +1,43 @@
 /* Created By Sithira Roneth
- * Date :2/29/24
- * Time :22:03
+ * Date :3/3/24
+ * Time :21:57
  * Project Name :ORM
  * */
 package lk.ijse.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "user")
 public class User {
     @Id
-    @Column(name = "mail")
-    private String mail;
-    @Column(name = "pw")
-    private String password;
+    @Column(name = "id",length = 50)
+    private String id;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "NIC")
+    private String nic;
+    @Column(name = "address")
+    private String address;
+    @Column(name = "contact")
+    private int contact;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "user")
+    private List<Transaction> reservations = new ArrayList<>();
+
+    public User(String id, String name, String nic, String address, int contact){
+        this.id = id;
+        this.name = name;
+        this.nic = nic;
+        this.address = address;
+        this.contact = contact;
+    }
 }

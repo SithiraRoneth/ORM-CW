@@ -5,24 +5,21 @@
  * */
 package lk.ijse.Config;
 
+import lk.ijse.Entity.Admin;
 import lk.ijse.Entity.Book;
-import lk.ijse.Entity.Customer;
-import lk.ijse.Entity.Transaction;
 import lk.ijse.Entity.User;
+import lk.ijse.Entity.Transaction;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import java.io.IOException;
-import java.util.Properties;
 
 public class FactoryConfiguration {
     private static FactoryConfiguration factoryConfiguration;
     private SessionFactory sessionFactory;
     private FactoryConfiguration(){
         Configuration configuration = new Configuration().configure()
+                .addAnnotatedClass(Admin.class)
                 .addAnnotatedClass(User.class)
-                .addAnnotatedClass(Customer.class)
                 .addAnnotatedClass(Book.class)
                 .addAnnotatedClass(Transaction.class)
                 ;

@@ -1,5 +1,7 @@
 package lk.ijse.DAO.Custom.Impl;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
 import javafx.scene.control.Alert;
 import lk.ijse.Config.FactoryConfiguration;
 import lk.ijse.DAO.Custom.UserDAO;
@@ -11,9 +13,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
-
     Session session = FactoryConfiguration.getInstance().getSession();
-
     @Override
     public boolean save(User dto) {
         try {
@@ -24,7 +24,7 @@ public class UserDAOImpl implements UserDAO {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             session.close();
         }
     }
@@ -37,7 +37,7 @@ public class UserDAOImpl implements UserDAO {
             transaction.commit();
             return true;
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             return false;
         } finally {
             session.close();
@@ -46,26 +46,55 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean delete(String id) {
-        return false;
+        try {
+            Transaction transaction = session.beginTransaction();
+            User customer = session.get(User.class,id);
+            session.delete(customer);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
     public List<User> getAll() {
-        return null;
-    }
-
-    @Override
-    public User getItem(String id) {
         try {
             Transaction transaction = session.beginTransaction();
-            User user = session.get(User.class,id);
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<User> query = criteriaBuilder.createQuery(User.class);
+            query.from(User.class);
+            List<User> resultList = session.createQuery(query).getResultList();
             transaction.commit();
-            return user;
+            return resultList;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         } finally {
             session.close();
         }
+    }
+
+    @Override
+    public User getItem(String id) {
+        try {
+            Transaction transaction = session.beginTransaction();
+            User customer = session.get(User.class,id);
+            transaction.commit();
+            return customer;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public String getNextId() {
+        return null;
     }
 }

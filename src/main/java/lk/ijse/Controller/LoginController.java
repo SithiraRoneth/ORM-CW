@@ -15,10 +15,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.BO.BOFactory;
-import lk.ijse.BO.Custom.UserBO;
-import lk.ijse.Dto.UserDTO;
+import lk.ijse.BO.Custom.AdminBO;
+import lk.ijse.Dto.AdminDTO;
 
-import java.awt.*;
 import java.io.IOException;
 public class LoginController {
     @FXML
@@ -33,7 +32,7 @@ public class LoginController {
     private JFXTextField txtMail;
 
 
-    UserBO userBO = (UserBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.USER);
+    AdminBO adminBO = (AdminBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.ADMIN);
 
     @FXML
      void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
@@ -41,8 +40,8 @@ public class LoginController {
         String mail = txtMail.getText();
         String pw = txtPw.getText();
 
-        var dto = new UserDTO(mail,pw);
-        UserDTO isCheck = userBO.getUser(dto);
+        var dto = new AdminDTO(mail,pw);
+        AdminDTO isCheck = adminBO.getAdmin(dto);
         if (isCheck.getMail().equals(mail)) {
             if (isCheck.getPassword().equals(pw)){
                 Parent rootNode = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));

@@ -32,7 +32,7 @@ public class DashBordController {
 
     @FXML
     void CustomerPage(MouseEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/View/customer.fxml"));
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/View/user.fxml"));
         Scene scene = new Scene(rootNode);
         Stage primaryStage = (Stage) root.getScene().getWindow();
         primaryStage.setScene(scene);

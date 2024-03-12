@@ -28,9 +28,9 @@ public class Transaction {
     @Column(name = "res_status")
     private String status;
     @ManyToOne
-    @JoinColumn(name = "customer_type_id",
-            referencedColumnName = "cus_id")
-    private Customer customer;
+    @JoinColumn(name = "user_type_id",
+            referencedColumnName = "id")
+    private User user;
     @ManyToOne
     @JoinColumn(name = "book_id",
             referencedColumnName = "book_id")

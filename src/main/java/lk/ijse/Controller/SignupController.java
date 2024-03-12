@@ -12,8 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.BO.BOFactory;
-import lk.ijse.BO.Custom.UserBO;
-import lk.ijse.Dto.UserDTO;
+import lk.ijse.BO.Custom.AdminBO;
+import lk.ijse.Dto.AdminDTO;
 
 import java.io.IOException;
 
@@ -25,15 +25,15 @@ public class SignupController {
 
     @FXML
     private JFXTextField txtPw;
-    UserBO userBO = (UserBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.USER);
+    AdminBO adminBO = (AdminBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.ADMIN);
 
     @FXML
     void btnSignupOnAction(ActionEvent event) {
         String mail = txtMail.getText();
         String pw = txtPw.getText();
 
-        var dto = new UserDTO(mail,pw);
-        boolean isSaved = userBO.saveUser(dto);
+        var dto = new AdminDTO(mail,pw);
+        boolean isSaved = adminBO.saveUser(dto);
         if (isSaved){
             new Alert(Alert.AlertType.CONFIRMATION,"User Saved").show();
         } else {

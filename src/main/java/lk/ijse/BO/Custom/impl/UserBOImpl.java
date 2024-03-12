@@ -6,30 +6,77 @@ import lk.ijse.DAO.DAOFactory;
 import lk.ijse.Dto.UserDTO;
 import lk.ijse.Entity.User;
 
-public class UserBOImpl implements UserBO {
+import java.util.ArrayList;
+import java.util.List;
 
+public class UserBOImpl implements UserBO {
     UserDAO userDAO = (UserDAO) DAOFactory.getFactory().getDAO(DAOFactory.DAOTypes.USER);
     @Override
-    public boolean saveUser(UserDTO userDTO) {
-        userDAO.save(new User(userDTO.getMail(),userDTO.getPassword()));
-        return true;
+    public List<UserDTO> getAllUsers() {
+
+        List<UserDTO>userDTOS = new ArrayList<>();
+        for (User user:userDAO.getAll()) {
+            userDTOS.add(new UserDTO(
+                    user.getId(),
+                    user.getName(),
+                    user.getNic(),
+                    user.getAddress(),
+                    user.getContact()
+            ));
+        }
+        return userDTOS;
     }
 
     @Override
-    public UserDTO getUser(UserDTO userDTO) {
-        User user = userDAO.getItem(userDTO.getMail());
-        if (user!=null) {
-            return new UserDTO(user.getMail(),user.getPassword());
-        } else {
-            return null;
-        }
+    public boolean saveUser(UserDTO userDTO) {
+        return userDAO.save(
+                new User(
+                      userDTO.getCusId(),
+                      userDTO.getName(),
+                      userDTO.getNic(),
+                      userDTO.getAddress(),
+                      userDTO.getContact()
+                )
+        );
     }
 
     @Override
     public boolean updateUser(UserDTO userDTO) {
-        return userDAO.update(new User(
-                userDTO.getMail(),
-                userDTO.getPassword()
-        ));
+        return userDAO.update(
+                new User(
+                        userDTO.getCusId(),
+                        userDTO.getName(),
+                        userDTO.getNic(),
+                        userDTO.getAddress(),
+                        userDTO.getContact()
+                )
+        );
+    }
+
+    @Override
+    public UserDTO getUser(String cusId) {
+        User user = userDAO.getItem(cusId);
+        if (user!=null) {
+            return new UserDTO(
+                    user.getId(),
+                    user.getName(),
+                    user.getNic(),
+                    user.getAddress(),
+                    user.getContact()
+            );
+        }
+        return null;
+    }
+
+    @Override
+    public boolean deleteUser(String cusId) {
+        return userDAO.delete(cusId);
+    }
+
+    @Override
+    public String getNextId() {
+        String id = userDAO.getNextId();
+        Integer newId = Integer.parseInt(id.replace("U","")) + 1;
+        return String.format("U%03d");
     }
 }

@@ -2,35 +2,35 @@ package lk.ijse.DAO.Custom.Impl;
 
 import javafx.scene.control.Alert;
 import lk.ijse.Config.FactoryConfiguration;
-import lk.ijse.DAO.Custom.BookDAO;
-import lk.ijse.Entity.Book;
+import lk.ijse.DAO.Custom.AdminDAO;
+import lk.ijse.Entity.Admin;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import java.io.Serializable;
 import java.util.List;
 
-public class BookDAOImpl  implements BookDAO {
+public class AdminDAOImpl implements AdminDAO {
+
     Session session = FactoryConfiguration.getInstance().getSession();
+
     @Override
-    public boolean save(Book dto) {
+    public boolean save(Admin dto) {
         try {
             Transaction transaction = session.beginTransaction();
             Serializable save = (Serializable) session.save(dto);
             transaction.commit();
-            return  save!=null;
+            return save != null;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
-        } finally {
+        }finally {
             session.close();
         }
     }
 
     @Override
-    public boolean update(Book dto) {
+    public boolean update(Admin dto) {
         try {
             Transaction transaction = session.beginTransaction();
             session.update(dto);
@@ -46,40 +46,26 @@ public class BookDAOImpl  implements BookDAO {
 
     @Override
     public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public List<Admin> getAll() {
+        return null;
+    }
+
+    @Override
+    public Admin getItem(String id) {
         try {
             Transaction transaction = session.beginTransaction();
-            Book book = session.get(Book.class,id);
-            session.delete(book);
+            Admin user = session.get(Admin.class,id);
             transaction.commit();
-            return true;
+            return user;
         } catch (Exception e) {
-            return false;
+            e.printStackTrace();
+            return null;
         } finally {
             session.close();
         }
-    }
-
-    @Override
-    public List<Book> getAll() {
-        try {
-            Transaction transaction = session.beginTransaction();
-            CriteriaBuilder criteriaBuilder = (CriteriaBuilder) session.getCriteriaBuilder();
-            CriteriaQuery<Book> query = criteriaBuilder.createQuery(Book.class);
-            query.from(Book.class);
-            return null;
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    @Override
-    public Book getItem(String id) {
-        return null;
-    }
-
-    @Override
-    public String getNextId() {
-        return null;
     }
 }
