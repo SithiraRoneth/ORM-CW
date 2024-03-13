@@ -6,7 +6,7 @@ import lk.ijse.DAO.Custom.AdminDAO;
 import lk.ijse.Entity.Admin;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
+import org.hibernate.query.Query;
 import java.io.Serializable;
 import java.util.List;
 

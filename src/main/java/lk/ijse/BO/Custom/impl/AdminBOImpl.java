@@ -6,6 +6,8 @@ import lk.ijse.DAO.DAOFactory;
 import lk.ijse.Dto.AdminDTO;
 import lk.ijse.Entity.Admin;
 
+import java.util.List;
+
 public class AdminBOImpl implements AdminBO {
 
     AdminDAO adminDAO = (AdminDAO) DAOFactory.getFactory().getDAO(DAOFactory.DAOTypes.AdMIN);
@@ -32,4 +34,5 @@ public class AdminBOImpl implements AdminBO {
                 userDTO.getPassword()
         ));
     }
+
 }

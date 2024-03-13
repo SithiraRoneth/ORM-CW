@@ -84,7 +84,7 @@ public class UserController {
         String id = cus_id.getText();
         boolean isDelete = userBO.deleteUser(id);
         if (isDelete){
-            new Alert(Alert.AlertType.CONFIRMATION,"Customer Deleted").show();
+            new Alert(Alert.AlertType.CONFIRMATION,"User Deleted").show();
         }else {
             new Alert(Alert.AlertType.ERROR).show();
         }

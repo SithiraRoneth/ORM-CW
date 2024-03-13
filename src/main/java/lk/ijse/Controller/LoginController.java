@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -61,7 +63,33 @@ public class LoginController {
 
     @FXML
      void hyperSignup(ActionEvent actionEvent) throws IOException {
-        root.getChildren().clear();
-        root.getChildren().add(FXMLLoader.load(getClass().getResource("/View/signup.fxml")));
+        /*root.getChildren().clear();
+        root.getChildren().add(FXMLLoader.load(getClass().getResource("/View/signup.fxml")));*/
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Choose one");
+        alert.setContentText("Choose an option:");
+
+        ButtonType buttonTypeOne = new ButtonType("Admin");
+        ButtonType buttonTypeTwo = new ButtonType("User");
+
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == buttonTypeOne) {
+                root.getChildren().clear();
+                try {
+                    root.getChildren().add(FXMLLoader.load(getClass().getResource("/View/signup.fxml")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (response == buttonTypeTwo) {
+                root.getChildren().clear();
+                try {
+                    root.getChildren().add(FXMLLoader.load(getClass().getResource("/View/user_signup.fxml")));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 }
