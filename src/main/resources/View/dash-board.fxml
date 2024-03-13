@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="305.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.DashBordController">
+<AnchorPane fx:id="root" prefHeight="413.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.DashBordController">
    <children>
       <Pane layoutX="26.0" layoutY="35.0" prefHeight="228.0" prefWidth="138.0" stylesheets="@../Style/dashboard.css">
          <children>
-            <ImageView fitHeight="140.0" fitWidth="138.0" layoutY="44.0" onMouseClicked="#CustomerPage" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="user" fitHeight="140.0" fitWidth="138.0" layoutY="44.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/gif/bookCustomer.gif" />
                </image>
             </ImageView>
-            <Text layoutX="53.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER" />
          </children></Pane>
       <Pane layoutX="185.0" layoutY="35.0" prefHeight="228.0" prefWidth="138.0" stylesheets="@../Style/dashboard.css">
          <children>
-            <Text layoutX="52.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOOK" />
-            <ImageView fitHeight="111.0" fitWidth="121.0" layoutX="9.0" layoutY="40.0" onMouseClicked="#BookPage" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="book" fitHeight="111.0" fitWidth="121.0" layoutX="9.0" layoutY="40.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/gif/book.gif" />
                </image>
@@ -29,8 +28,7 @@
       </Pane>
       <Pane layoutX="366.0" layoutY="35.0" prefHeight="228.0" prefWidth="138.0" stylesheets="@../Style/dashboard.css">
          <children>
-            <Text layoutX="29.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TRANSACTION" />
-            <ImageView fitHeight="140.0" fitWidth="132.0" layoutX="3.0" layoutY="32.0" onMouseClicked="#TransactionPage" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="transaction" fitHeight="140.0" fitWidth="132.0" layoutX="3.0" layoutY="32.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/gif/transaction.gif" />
                </image>
@@ -39,13 +37,18 @@
       </Pane>
       <Pane layoutX="538.0" layoutY="35.0" prefHeight="228.0" prefWidth="138.0" stylesheets="@../Style/dashboard.css">
          <children>
-            <Text layoutX="46.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SETTING" />
-            <ImageView fitHeight="122.0" fitWidth="103.0" layoutX="17.0" layoutY="43.0" onMouseClicked="#SettingPage" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="setting" fitHeight="122.0" fitWidth="103.0" layoutX="17.0" layoutY="43.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/gif/setting.gif" />
                </image>
             </ImageView>
          </children>
       </Pane>
+      <Label fx:id="lblmenu" layoutX="340.0" layoutY="287.0">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbldesc" layoutX="326.0" layoutY="357.0" textFill="#1a00ff" AnchorPane.leftAnchor="300.0" />
    </children>
 </AnchorPane>

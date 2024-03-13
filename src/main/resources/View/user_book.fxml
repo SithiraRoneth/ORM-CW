@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootNode" prefHeight="588.0" prefWidth="862.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.User_Book_Controller">
+   <children>
+      <ImageView fx:id="home" fitHeight="76.0" fitWidth="74.0" layoutX="14.0" layoutY="25.0" onMouseClicked="#navigate" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/gif/home.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

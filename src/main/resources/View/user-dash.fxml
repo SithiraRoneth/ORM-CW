@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="413.0" prefWidth="707.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.UserDashBoard">
+   <children>
+      <ImageView fx:id="book" fitHeight="174.0" fitWidth="244.0" layoutX="58.0" layoutY="64.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/gif/book.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stock" fitHeight="174.0" fitWidth="195.0" layoutX="423.0" layoutY="70.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/gif/stock.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblMenu" layoutX="340.0" layoutY="294.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDesc" layoutX="340.0" layoutY="352.0" textFill="#0048ff">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
