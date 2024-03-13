@@ -46,7 +46,7 @@
          </font>
       </Text>
       <DatePicker fx:id="returnDate" layoutX="629.0" layoutY="184.0" />
-      <TableView fx:id="tbl" layoutX="33.0" layoutY="346.0" prefHeight="200.0" prefWidth="791.0">
+      <TableView fx:id="tbl" layoutX="35.0" layoutY="327.0" prefHeight="200.0" prefWidth="791.0">
         <columns>
           <TableColumn fx:id="colUser" prefWidth="109.60000228881836" text="User ID" />
           <TableColumn fx:id="colBook" prefWidth="170.40003967285156" text="Book ID" />
@@ -55,7 +55,8 @@
             <TableColumn fx:id="colDelete" prefWidth="123.20001220703125" text="Delete" />
         </columns>
       </TableView>
-      <JFXButton layoutX="717.0" layoutY="275.0" onAction="#saveOnAction" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #6196A6; -fx-background-radius: 25;" text="Save" textFill="WHITE" />
+      <JFXButton layoutX="755.0" layoutY="275.0" onAction="#AddOnAction" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: green; -fx-background-radius: 25;" text="ADD" textFill="WHITE" />
       <Label fx:id="lblid" layoutX="160.0" layoutY="92.0" />
+      <JFXButton layoutX="762.0" layoutY="536.0" onAction="#saveOnAction" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #6196A6; -fx-background-radius: 25;" text="Save" textFill="WHITE" />
    </children>
 </AnchorPane>

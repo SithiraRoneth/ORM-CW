@@ -79,4 +79,8 @@ public class TransactionController {
     void saveOnAction(ActionEvent event) {
 
     }
+    @FXML
+    void AddOnAction(ActionEvent event) {
+
+    }
 }
