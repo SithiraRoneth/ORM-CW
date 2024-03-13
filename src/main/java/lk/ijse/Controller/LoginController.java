@@ -60,7 +60,6 @@ public class LoginController {
             lblMail.setText("Invalid Mail \uD83D\uDD12");
         }
     }
-
     @FXML
      void hyperSignup(ActionEvent actionEvent) throws IOException {
         /*root.getChildren().clear();
