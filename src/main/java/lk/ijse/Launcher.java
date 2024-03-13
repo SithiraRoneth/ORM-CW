@@ -17,7 +17,7 @@ public class Launcher extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/View/dash-board.fxml")));
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/View/user-dash.fxml")));
         stage.setScene(scene);
         stage.centerOnScreen();
        /* stage.initStyle(StageStyle.UNDECORATED);*/

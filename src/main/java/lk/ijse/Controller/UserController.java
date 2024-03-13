@@ -99,6 +99,7 @@ public class UserController {
         String add = address.getText();
         int con = Integer.parseInt(contact.getText());
 
+
         var dto = new UserDTO(id,cus_name,nic,add,con);
         boolean isSaved = userBO.saveUser(dto);
         if (isSaved){
