@@ -3,6 +3,7 @@
  * Time :22:02
  * Project Name :ORM
  * */
+
 package lk.ijse.Config;
 
 import lk.ijse.Entity.Admin;
@@ -13,16 +14,29 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.io.IOException;
+import java.util.Properties;
+
 public class FactoryConfiguration {
     private static FactoryConfiguration factoryConfiguration;
     private SessionFactory sessionFactory;
     private FactoryConfiguration(){
-        Configuration configuration = new Configuration().configure()
-                .addAnnotatedClass(Admin.class)
-                .addAnnotatedClass(User.class)
-                .addAnnotatedClass(Book.class)
-                .addAnnotatedClass(Transaction.class)
-                ;
+
+        Configuration configuration = new Configuration();
+        Properties properties = new Properties();
+
+        try {
+            properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("hibernate.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        configuration.setProperties(properties);
+        configuration.addAnnotatedClass(Admin.class);
+        configuration.addAnnotatedClass(User.class);
+        configuration.addAnnotatedClass(Book.class);
+        configuration.addAnnotatedClass(Transaction.class);
+
         sessionFactory = configuration.buildSessionFactory();
     }
     public static FactoryConfiguration getInstance(){
