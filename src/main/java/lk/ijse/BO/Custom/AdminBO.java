@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface AdminBO extends SuperBO {
     boolean saveUser(AdminDTO adminDTO);
-    AdminDTO getAdmin(AdminDTO adminDTO);
+    AdminDTO getAdmin(String mail);
     boolean updateUser(AdminDTO adminDTO);
+    List<AdminDTO> loginUserDetails(AdminDTO adminDTO);
+
 }

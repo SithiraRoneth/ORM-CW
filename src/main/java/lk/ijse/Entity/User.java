@@ -26,19 +26,19 @@ public class User {
     private String name;
     @Column(name = "NIC")
     private String nic;
-    @Column(name = "address")
-    private String address;
-    @Column(name = "contact")
-    private int contact;
+    @Column(name = "e-mail")
+    private String e_mail;
+    @Column(name = "password")
+    private String pw;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "user")
     private List<Transaction> reservations = new ArrayList<>();
 
-    public User(String id, String name, String nic, String address, int contact){
+    public User(String id, String name, String nic, String e_mail, String pw){
         this.id = id;
         this.name = name;
         this.nic = nic;
-        this.address = address;
-        this.contact = contact;
+        this.e_mail = e_mail;
+        this.pw = pw;
     }
 
 }

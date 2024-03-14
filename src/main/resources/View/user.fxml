@@ -27,12 +27,12 @@
       <JFXTextField fx:id="address" layoutX="39.0" layoutY="226.0" prefHeight="26.0" prefWidth="198.0" />
       <JFXTextField fx:id="contact" layoutX="331.0" layoutY="226.0" prefHeight="26.0" prefWidth="198.0" />
       <JFXTextField fx:id="NIc" layoutX="609.0" layoutY="133.0" prefHeight="26.0" prefWidth="198.0" />
-      <Text layoutX="39.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID">
+      <Text layoutX="39.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="39.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+      <Text layoutX="39.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -47,7 +47,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="325.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact NO.">
+      <Text layoutX="325.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

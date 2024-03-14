@@ -97,7 +97,7 @@ public class UserController {
         String cus_name = name.getText();
         String nic = NIc.getText();
         String add = address.getText();
-        int con = Integer.parseInt(contact.getText());
+        String con = contact.getText();
 
 
         var dto = new UserDTO(id,cus_name,nic,add,con);
@@ -116,7 +116,7 @@ public class UserController {
         String cus_name = name.getText();
         String nic = NIc.getText();
         String add = address.getText();
-        int con = Integer.parseInt(contact.getText());
+        String con = contact.getText();
 
         var dto = new UserDTO(id,cus_name,nic,add,con);
         boolean isUpdate = userBO.updateUser(dto);

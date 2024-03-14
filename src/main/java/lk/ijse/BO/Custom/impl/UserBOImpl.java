@@ -20,8 +20,8 @@ public class UserBOImpl implements UserBO {
                     user.getId(),
                     user.getName(),
                     user.getNic(),
-                    user.getAddress(),
-                    user.getContact()
+                    user.getE_mail(),
+                    user.getPw()
             ));
         }
         return userDTOS;
@@ -31,11 +31,11 @@ public class UserBOImpl implements UserBO {
     public boolean saveUser(UserDTO userDTO) {
         return userDAO.save(
                 new User(
-                      userDTO.getCusId(),
-                      userDTO.getName(),
-                      userDTO.getNic(),
-                      userDTO.getAddress(),
-                      userDTO.getContact()
+                        userDTO.getId(),
+                        userDTO.getName(),
+                        userDTO.getNic(),
+                        userDTO.getE_mail(),
+                        userDTO.getPw()
                 )
         );
     }
@@ -44,11 +44,11 @@ public class UserBOImpl implements UserBO {
     public boolean updateUser(UserDTO userDTO) {
         return userDAO.update(
                 new User(
-                        userDTO.getCusId(),
+                        userDTO.getId(),
                         userDTO.getName(),
                         userDTO.getNic(),
-                        userDTO.getAddress(),
-                        userDTO.getContact()
+                        userDTO.getE_mail(),
+                        userDTO.getPw()
                 )
         );
     }
@@ -61,8 +61,8 @@ public class UserBOImpl implements UserBO {
                     user.getId(),
                     user.getName(),
                     user.getNic(),
-                    user.getAddress(),
-                    user.getContact()
+                    user.getE_mail(),
+                    user.getPw()
             );
         }
         return null;

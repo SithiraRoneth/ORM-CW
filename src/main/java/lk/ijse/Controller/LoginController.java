@@ -21,6 +21,8 @@ import lk.ijse.BO.Custom.AdminBO;
 import lk.ijse.Dto.AdminDTO;
 
 import java.io.IOException;
+import java.util.List;
+
 public class LoginController {
     @FXML
     private Label lblPw;
@@ -36,30 +38,60 @@ public class LoginController {
 
     AdminBO adminBO = (AdminBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.ADMIN);
 
-    @FXML
+    /*@FXML
      void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
 
         String mail = txtMail.getText();
         String pw = txtPw.getText();
 
-        var dto = new AdminDTO(mail,pw);
-        AdminDTO isCheck = adminBO.getAdmin(dto);
-        if (isCheck.getMail().equals(mail)) {
-            if (isCheck.getPassword().equals(pw)){
+        AdminDTO adminDTO = adminBO.getAdmin(mail);
+            if (adminDTO.getMail().equals(mail)) {
+                if (adminDTO.getPassword().equals(pw)){
+                    Parent rootNode = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));
+                    Scene scene = new Scene(rootNode);
+                    Stage primaryStage = (Stage) root.getScene().getWindow();
+                    primaryStage.setScene(scene);
+                    primaryStage.centerOnScreen();
+                    primaryStage.setTitle("Dashboard");
+                }else{
+                    lblPw.setText("Invalid Password \uD83D\uDD12");
+                }
+            }else {
+                lblMail.setText("Invalid Mail \uD83D\uDD12");
+            }
+    }*/
+    @FXML
+    void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
+
+        String mail = txtMail.getText();
+        String pw = txtPw.getText();
+
+        AdminDTO adminDTO = adminBO.getAdmin(mail);
+
+        if (adminDTO != null) { // Check if adminDTO is not null (email exists)
+            if (adminDTO.getMail().equals(mail) && adminDTO.getPassword().equals(pw)) {
+                // Email and password match
                 Parent rootNode = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));
                 Scene scene = new Scene(rootNode);
                 Stage primaryStage = (Stage) root.getScene().getWindow();
                 primaryStage.setScene(scene);
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Dashboard");
-            }else{
-                lblPw.setText("Invalid Password \uD83D\uDD12");
-
+            } else {
+                // Either email or password is incorrect
+                if (!adminDTO.getMail().equals(mail)) {
+                    lblMail.setText("Invalid Mail \uD83D\uDD12");
+                }
+                if (!adminDTO.getPassword().equals(pw)) {
+                    lblPw.setText("Invalid Password \uD83D\uDD12");
+                }
             }
-        }else {
+        } else {
+            // Email doesn't exist
             lblMail.setText("Invalid Mail \uD83D\uDD12");
         }
     }
+
     @FXML
      void hyperSignup(ActionEvent actionEvent) throws IOException {
         /*root.getChildren().clear();

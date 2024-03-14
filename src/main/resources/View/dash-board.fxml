@@ -44,11 +44,11 @@
             </ImageView>
          </children>
       </Pane>
-      <Label fx:id="lblmenu" layoutX="340.0" layoutY="287.0">
+      <Label fx:id="lblmenu" layoutX="340.0" layoutY="287.0" stylesheets="@../Style/label.css">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="lbldesc" layoutX="326.0" layoutY="357.0" textFill="#1a00ff" AnchorPane.leftAnchor="300.0" />
+      <Label fx:id="lbldesc" layoutX="326.0" layoutY="357.0" stylesheets="@../Style/label.css" textFill="#1a00ff" AnchorPane.leftAnchor="300.0" />
    </children>
 </AnchorPane>

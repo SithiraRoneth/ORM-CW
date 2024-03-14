@@ -7,4 +7,5 @@ import lk.ijse.Entity.User;
 import java.util.List;
 
 public interface AdminDAO extends CrudDAO<Admin,String>{
+    Admin loginUser(String mail, String password);
 }

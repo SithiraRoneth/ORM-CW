@@ -7,6 +7,7 @@ import lk.ijse.Entity.Admin;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -64,8 +65,14 @@ public class AdminDAOImpl implements AdminDAO {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        } finally {
-            session.close();
         }
     }
+    @Override
+    public Admin loginUser(String mail, String password) {
+        Query<Admin> query = session.createQuery("FROM Admin WHERE mail = :mail AND password = :pw", Admin.class);
+        query.setParameter("mail", mail);
+        query.setParameter("password", password);
+        return query.uniqueResult();
+    }
+
 }
