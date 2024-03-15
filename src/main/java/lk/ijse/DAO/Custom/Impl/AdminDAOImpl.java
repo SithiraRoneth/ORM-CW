@@ -67,12 +67,5 @@ public class AdminDAOImpl implements AdminDAO {
             return null;
         }
     }
-    @Override
-    public Admin loginUser(String mail, String password) {
-        Query<Admin> query = session.createQuery("FROM Admin WHERE mail = :mail AND password = :pw", Admin.class);
-        query.setParameter("mail", mail);
-        query.setParameter("password", password);
-        return query.uniqueResult();
-    }
 
 }

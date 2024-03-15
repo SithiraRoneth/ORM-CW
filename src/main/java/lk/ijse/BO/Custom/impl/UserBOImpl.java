@@ -77,6 +77,6 @@ public class UserBOImpl implements UserBO {
     public String getNextId() {
         String id = userDAO.getNextId();
         Integer newId = Integer.parseInt(id.replace("U","")) + 1;
-        return String.format("U%03d");
+        return String.format("U%03d",newId);
     }
 }

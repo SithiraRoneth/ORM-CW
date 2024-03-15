@@ -10,20 +10,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.BO.BOFactory;
 import lk.ijse.BO.Custom.UserBO;
 import lk.ijse.Dto.UserDTO;
+import org.controlsfx.control.Notifications;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class User_signup_Controller {
-
-    @FXML
-    private AnchorPane root;
     @FXML
     private Label lblID;
+    @FXML
+    private AnchorPane root;
     @FXML
     private JFXTextField txtEmail;
     @FXML
@@ -56,13 +58,42 @@ public class User_signup_Controller {
         String email = txtEmail.getText();
         String pw = txtPW.getText();
 
-        var dto = new UserDTO(id,name,nic,email,pw);
-        boolean isReg = userBO.saveUser(dto);
-        if (isReg){
-            new Alert(Alert.AlertType.CONFIRMATION,"User registered").show();
-        }else {
-            new Alert(Alert.AlertType.ERROR).show();
+        try {
+            if (!validateUsername()) {
+                return;
+            }
+            var dto = new UserDTO(id, name, nic, email, pw);
+            boolean isReg = userBO.saveUser(dto);
+            if (isReg) {
+                new Alert(Alert.AlertType.CONFIRMATION, "User registered").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR).show();
+            }
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
         }
+    }
+
+    private boolean validateUsername() {
+        boolean isValidate = true;
+        boolean email = Pattern.matches("^(.+)@(.+)$",txtEmail.getText());
+        if (!email){
+            showErrorNotification("Invalid email","The email you entered is invalid");
+            isValidate = false;
+        }
+        boolean password = Pattern.matches("[0-9]{5,}", txtPW.getText());
+        if (!password){
+            showErrorNotification("Invalid password", "The password you entered is invalid");
+            isValidate = false;
+        }
+        return isValidate;
+    }
+
+    private void showErrorNotification(String title, String text) {
+        Notifications.create()
+                .title(title)
+                .text(text)
+                .showError();
     }
 
     @FXML

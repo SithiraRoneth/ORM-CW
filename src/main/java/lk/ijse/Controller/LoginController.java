@@ -18,7 +18,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.BO.BOFactory;
 import lk.ijse.BO.Custom.AdminBO;
+import lk.ijse.BO.Custom.UserBO;
 import lk.ijse.Dto.AdminDTO;
+import lk.ijse.Dto.UserDTO;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,9 +36,8 @@ public class LoginController {
     private JFXTextField txtPw;
     @FXML
     private JFXTextField txtMail;
-
-
     AdminBO adminBO = (AdminBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.ADMIN);
+    UserBO userBO = (UserBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.USER);
 
     /*@FXML
      void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
@@ -60,7 +61,7 @@ public class LoginController {
                 lblMail.setText("Invalid Mail \uD83D\uDD12");
             }
     }*/
-    @FXML
+   /* @FXML
     void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
 
         String mail = txtMail.getText();
@@ -86,6 +87,38 @@ public class LoginController {
             }
         } else {
             lblMail.setText("Invalid Mail \uD83D\uDD12");
+        }
+    }
+*/
+    @FXML
+    void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
+
+        String mail = txtMail.getText();
+        String pw = txtPw.getText();
+
+        AdminDTO adminDTO = adminBO.getAdmin(mail);
+        UserDTO userDTO = userBO.getUser(mail);
+
+        if (adminDTO != null && adminDTO.getMail().equals(mail) && adminDTO.getPassword().equals(pw)) {
+            // Admin login successful
+            Parent rootNode = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));
+            Scene scene = new Scene(rootNode);
+            Stage primaryStage = (Stage) root.getScene().getWindow();
+            primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
+            primaryStage.setTitle("Admin Dashboard");
+        } else if (userDTO != null && userDTO.getE_mail().equals(mail)&& userDTO.getPw().equals(pw)) {
+            // User login successful
+            Parent rootNode = FXMLLoader.load(getClass().getResource("/View/user-dash.fxml"));
+            Scene scene = new Scene(rootNode);
+            Stage primaryStage = (Stage) root.getScene().getWindow();
+            primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
+            primaryStage.setTitle("User Dashboard");
+        } else {
+            // Invalid credentials for both admin and user
+            lblMail.setText("Invalid Email \uD83D\uDD12");
+            lblPw.setText("Invalid Password \uD83D\uDD12");
         }
     }
 
