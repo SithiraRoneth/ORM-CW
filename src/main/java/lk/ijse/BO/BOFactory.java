@@ -6,6 +6,7 @@
 package lk.ijse.BO;
 
 import lk.ijse.BO.Custom.impl.BookBOImpl;
+import lk.ijse.BO.Custom.impl.TransactionBOImpl;
 import lk.ijse.BO.Custom.impl.UserBOImpl;
 import lk.ijse.BO.Custom.impl.AdminBOImpl;
 
@@ -30,7 +31,7 @@ public class BOFactory {
             case BOOK:
                 return new BookBOImpl();
             case TRANSACTION:
-                return null;
+                return new TransactionBOImpl();
             default:
                 return null;
         }

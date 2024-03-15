@@ -31,7 +31,7 @@ public class User {
     @Column(name = "password")
     private String pw;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "user")
-    private List<Transaction> reservations = new ArrayList<>();
+    private List<Transactions> reservations = new ArrayList<>();
 
     public User(String id, String name, String nic, String e_mail, String pw){
         this.id = id;

@@ -17,7 +17,7 @@ import java.sql.Date;
 @ToString
 @Entity
 @Table(name = "transaction")
-public class Transaction {
+public class Transactions {
     @Id
     @Column(name = "trans_id",length = 50)
     private String id;
@@ -35,4 +35,12 @@ public class Transaction {
     @JoinColumn(name = "book_id",
             referencedColumnName = "book_id")
     private Book book;
+
+    public Transactions(String transId, java.util.Date startDate, java.util.Date endDate, Book book, User user) {
+       this.id = transId;
+       this.startDate = (Date) startDate;
+       this.endDate = (Date) endDate;
+       this.user = user;
+       this.book = book;
+    }
 }
