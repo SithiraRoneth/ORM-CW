@@ -37,14 +37,4 @@ public class AdminBOImpl implements AdminBO {
         ));
     }
 
-    @Override
-    public List<AdminDTO> loginUserDetails(AdminDTO adminDTO) {
-        Admin admin = adminDAO.loginUser(adminDTO.getMail(), adminDTO.getPassword());
-        if (admin != null) {
-            return (List<AdminDTO>) new AdminDTO(admin.getMail(), admin.getPassword());
-        } else {
-            return null;
-        }
-    }
-
 }

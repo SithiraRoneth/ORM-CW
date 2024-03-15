@@ -68,9 +68,8 @@ public class LoginController {
 
         AdminDTO adminDTO = adminBO.getAdmin(mail);
 
-        if (adminDTO != null) { // Check if adminDTO is not null (email exists)
+        if (adminDTO != null) {
             if (adminDTO.getMail().equals(mail) && adminDTO.getPassword().equals(pw)) {
-                // Email and password match
                 Parent rootNode = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));
                 Scene scene = new Scene(rootNode);
                 Stage primaryStage = (Stage) root.getScene().getWindow();
@@ -78,7 +77,6 @@ public class LoginController {
                 primaryStage.centerOnScreen();
                 primaryStage.setTitle("Dashboard");
             } else {
-                // Either email or password is incorrect
                 if (!adminDTO.getMail().equals(mail)) {
                     lblMail.setText("Invalid Mail \uD83D\uDD12");
                 }
@@ -87,15 +85,12 @@ public class LoginController {
                 }
             }
         } else {
-            // Email doesn't exist
             lblMail.setText("Invalid Mail \uD83D\uDD12");
         }
     }
 
     @FXML
      void hyperSignup(ActionEvent actionEvent) throws IOException {
-        /*root.getChildren().clear();
-        root.getChildren().add(FXMLLoader.load(getClass().getResource("/View/signup.fxml")));*/
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Choose one");
         alert.setContentText("Choose an option:");
@@ -120,8 +115,6 @@ public class LoginController {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
-
             }
         });
     }
