@@ -12,10 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -26,6 +23,8 @@ import lk.ijse.Dto.BookDTO;
 import java.io.IOException;
 
 public class BookController {
+    @FXML
+    private Label lblId;
     @FXML
     private TextField search;
     @FXML
@@ -55,7 +54,18 @@ public class BookController {
 
     public void initialize() {
         setType();
+        generateNextID();
     }
+
+    private void generateNextID() {
+        try {
+            String bookId = bookBO.getNextId();
+            lblId.setText(bookId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     private void setType() {
         cmbType.getItems().setAll("Education","Novel","Love","Series","Thriller","History","Fantasy");
     }
@@ -82,7 +92,7 @@ public class BookController {
 
     @FXML
     void saveOnAction(ActionEvent event) {
-        String id = bookID.getText();
+        String id = lblId.getText();
         String name = B_Name.getText();
         String type = cmbType.getValue();
 

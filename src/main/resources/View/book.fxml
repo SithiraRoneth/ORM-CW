@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -29,7 +30,6 @@
             <Image url="@../assets/gif/home.gif" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="bookID" layoutX="71.0" layoutY="199.0" prefHeight="26.0" prefWidth="170.0" />
       <JFXTextField fx:id="B_Name" layoutX="71.0" layoutY="281.0" prefHeight="26.0" prefWidth="170.0" />
       <Text layoutX="66.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ID" />
       <Text layoutX="66.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
@@ -51,5 +51,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <Label fx:id="lblId" layoutX="68.0" layoutY="204.0" />
    </children>
 </AnchorPane>

@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import lk.ijse.Config.FactoryConfiguration;
 import lk.ijse.DAO.Custom.BookDAO;
 import lk.ijse.Entity.Book;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -80,6 +81,17 @@ public class BookDAOImpl  implements BookDAO {
 
     @Override
     public String getNextId() {
-        return null;
+        try {
+            String newId = "B000";
+            Transaction transaction = session.beginTransaction();
+            List list = session.createNativeQuery("select id from book order by id desc limit 1").list();
+            if (!list.isEmpty()) newId = (String) list.get(0);
+            transaction.commit();
+            session.close();
+            return newId;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

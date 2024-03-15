@@ -69,6 +69,6 @@ public class BookBOImpl implements BookBO {
     public String getNextId() {
         String id = bookDAO.getNextId();
         Integer newId = Integer.parseInt(id.replace("B","")) + 1;
-        return String.format("B%03d");
+        return String.format("B%03d",newId);
     }
 }
