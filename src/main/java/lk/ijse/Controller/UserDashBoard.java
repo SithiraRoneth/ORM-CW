@@ -111,4 +111,12 @@ public class UserDashBoard {
         }
     }
 
+    @FXML
+    private void logoutOnAction(MouseEvent mouseEvent) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/View/login.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage primaryStage = (Stage) root.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
+    }
 }

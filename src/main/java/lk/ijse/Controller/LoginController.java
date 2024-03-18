@@ -23,7 +23,6 @@ import lk.ijse.Dto.AdminDTO;
 import lk.ijse.Dto.UserDTO;
 
 import java.io.IOException;
-import java.util.List;
 
 public class LoginController {
     @FXML
@@ -39,57 +38,6 @@ public class LoginController {
     AdminBO adminBO = (AdminBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.ADMIN);
     UserBO userBO = (UserBO) BOFactory.getFactory().getBO(BOFactory.BOTypes.USER);
 
-    /*@FXML
-     void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
-
-        String mail = txtMail.getText();
-        String pw = txtPw.getText();
-
-        AdminDTO adminDTO = adminBO.getAdmin(mail);
-            if (adminDTO.getMail().equals(mail)) {
-                if (adminDTO.getPassword().equals(pw)){
-                    Parent rootNode = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));
-                    Scene scene = new Scene(rootNode);
-                    Stage primaryStage = (Stage) root.getScene().getWindow();
-                    primaryStage.setScene(scene);
-                    primaryStage.centerOnScreen();
-                    primaryStage.setTitle("Dashboard");
-                }else{
-                    lblPw.setText("Invalid Password \uD83D\uDD12");
-                }
-            }else {
-                lblMail.setText("Invalid Mail \uD83D\uDD12");
-            }
-    }*/
-   /* @FXML
-    void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
-
-        String mail = txtMail.getText();
-        String pw = txtPw.getText();
-
-        AdminDTO adminDTO = adminBO.getAdmin(mail);
-
-        if (adminDTO != null) {
-            if (adminDTO.getMail().equals(mail) && adminDTO.getPassword().equals(pw)) {
-                Parent rootNode = FXMLLoader.load(getClass().getResource("/View/dash-board.fxml"));
-                Scene scene = new Scene(rootNode);
-                Stage primaryStage = (Stage) root.getScene().getWindow();
-                primaryStage.setScene(scene);
-                primaryStage.centerOnScreen();
-                primaryStage.setTitle("Dashboard");
-            } else {
-                if (!adminDTO.getMail().equals(mail)) {
-                    lblMail.setText("Invalid Mail \uD83D\uDD12");
-                }
-                if (!adminDTO.getPassword().equals(pw)) {
-                    lblPw.setText("Invalid Password \uD83D\uDD12");
-                }
-            }
-        } else {
-            lblMail.setText("Invalid Mail \uD83D\uDD12");
-        }
-    }
-*/
     @FXML
     void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
 

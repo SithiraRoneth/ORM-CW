@@ -36,8 +36,8 @@
          </font>
       </Text>
       <Label fx:id="lblDate" layoutX="78.0" layoutY="125.0" />
-      <JFXComboBox fx:id="cmbUserID" layoutX="33.0" layoutY="184.0" prefHeight="26.0" prefWidth="180.0" promptText="User ID" />
-      <JFXComboBox fx:id="cmbBookId" layoutX="33.0" layoutY="271.0" prefHeight="26.0" prefWidth="180.0" promptText="Book ID" />
+      <JFXComboBox fx:id="cmbUserID" layoutX="33.0" layoutY="184.0" onAction="#cmbUserIdOnAction" prefHeight="26.0" prefWidth="180.0" promptText="User ID" />
+      <JFXComboBox fx:id="cmbBookId" layoutX="33.0" layoutY="271.0" onAction="#cmbBookIdOnAction" prefHeight="26.0" prefWidth="180.0" promptText="Book ID" />
       <TextField fx:id="txtusername" layoutX="307.0" layoutY="184.0" prefHeight="26.0" prefWidth="232.0" promptText="User Name" />
       <TextField fx:id="txtbookName" layoutX="307.0" layoutY="271.0" prefHeight="26.0" prefWidth="232.0" promptText="Book Name" />
       <Text layoutX="627.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date:">
@@ -48,15 +48,22 @@
       <DatePicker fx:id="returnDate" layoutX="629.0" layoutY="184.0" />
       <TableView fx:id="tbl" layoutX="35.0" layoutY="327.0" prefHeight="200.0" prefWidth="791.0">
         <columns>
-          <TableColumn fx:id="colUser" prefWidth="109.60000228881836" text="User ID" />
-          <TableColumn fx:id="colBook" prefWidth="170.40003967285156" text="Book ID" />
-            <TableColumn fx:id="colStart" prefWidth="200.0" text="Start Date" />
-            <TableColumn fx:id="colReturn" prefWidth="187.20001220703125" text="Return Date" />
-            <TableColumn fx:id="colDelete" prefWidth="123.20001220703125" text="Delete" />
+          <TableColumn fx:id="colTran" prefWidth="106.40002059936523" text="Transaction ID" />
+          <TableColumn fx:id="colUser" prefWidth="120.80000305175781" text="User ID" />
+            <TableColumn fx:id="colBook" prefWidth="116.79998779296875" text="Book ID" />
+            <TableColumn fx:id="colStart" prefWidth="210.4000244140625" text="Start Date" />
+            <TableColumn fx:id="colReturn" prefWidth="234.39996337890625" text="Return Date" />
         </columns>
       </TableView>
-      <JFXButton layoutX="755.0" layoutY="275.0" onAction="#AddOnAction" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: green; -fx-background-radius: 25;" text="ADD" textFill="WHITE" />
       <Label fx:id="lblid" layoutX="160.0" layoutY="92.0" />
-      <JFXButton layoutX="762.0" layoutY="536.0" onAction="#saveOnAction" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #6196A6; -fx-background-radius: 25;" text="Save" textFill="WHITE" />
+      <JFXButton layoutX="592.0" layoutY="263.0" onAction="#saveOnAction" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #6196A6; -fx-background-radius: 25;" text="Save" textFill="WHITE" />
+      <JFXButton fx:id="btnUpdate" layoutX="681.0" layoutY="263.0" onAction="#updateOnAction" prefHeight="38.0" prefWidth="70.0" style="-fx-background-radius: 25; -fx-background-color: #D2D180;" text="Update" textFill="#f2f2f2" />
+      <JFXButton fx:id="btnDelete" layoutX="769.0" layoutY="263.0" onAction="#deleteOnAction" prefHeight="38.0" prefWidth="70.0" style="-fx-background-radius: 25; -fx-background-color: #D37676;" text="Delete" textFill="#f2f2f2" />
+      <TextField fx:id="search" layoutX="631.0" layoutY="112.0" prefHeight="26.0" prefWidth="170.0" promptText="search" />
+      <JFXButton fx:id="btnSearch" layoutX="747.0" layoutY="112.0" onAction="#searchOnAction" style="-fx-background-color: blue;" text="Search" textFill="#f7f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

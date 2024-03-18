@@ -22,18 +22,28 @@ public class Book {
     @Id
     @Column(name = "book_id",length = 5)
     private String id;
-    @Column(name = "book_name")
-    private String name;
-    @Column(name = "book_type")
-    private String type;
-    @Column(name = "Status")
+    @Column(name = "title")
+    private String title;
+    @Column(name = "genre")
+    private String genre;
+    @Column(name = "author")
+    private String author;
+    @Column(name = "status")
     private String status;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "book")
-    private List<Transactions> reservations = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "bookList")
+    private List<Transactions> transactions = new ArrayList<>();
 
-    public Book(String id,String name,String type){
+    public Book(String id,String title,String genre,String author){
         this.id = id;
-        this.name = name;
-        this.type = type;
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+    }
+    public Book(String id,String title,String genre,String author,String status){
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+        this.status = status;
     }
 }

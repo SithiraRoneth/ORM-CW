@@ -52,17 +52,15 @@ public class User_signup_Controller {
 
     @FXML
     void btnSignupOnAction(ActionEvent event) {
-        String id = lblID.getText();
-        String name = txtName.getText();
-        String nic = txtNIC.getText();
         String email = txtEmail.getText();
+        String name = txtName.getText();
         String pw = txtPW.getText();
 
         try {
             if (!validateUsername()) {
                 return;
             }
-            var dto = new UserDTO(id, name, nic, email, pw);
+            var dto = new UserDTO(email, name,pw);
             boolean isReg = userBO.saveUser(dto);
             if (isReg) {
                 new Alert(Alert.AlertType.CONFIRMATION, "User registered").show();

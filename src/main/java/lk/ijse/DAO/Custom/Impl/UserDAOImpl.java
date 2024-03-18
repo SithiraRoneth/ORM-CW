@@ -14,9 +14,9 @@ import java.io.Serializable;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
-    Session session = FactoryConfiguration.getInstance().getSession();
     @Override
     public boolean save(User dto) {
+        Session session = FactoryConfiguration.getInstance().getSession();
         try {
             Transaction transaction = session.beginTransaction();
             Serializable save = (Serializable) session.save(dto);
@@ -32,6 +32,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean update(User dto) {
+        Session session = FactoryConfiguration.getInstance().getSession();
         try {
             Transaction transaction = session.beginTransaction();
             session.update(dto);
@@ -47,6 +48,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean delete(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
         try {
             Transaction transaction = session.beginTransaction();
             User customer = session.get(User.class,id);
@@ -63,6 +65,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> getAll() {
+        Session session = FactoryConfiguration.getInstance().getSession();
         try {
             Transaction transaction = session.beginTransaction();
             CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
@@ -81,6 +84,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User getItem(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
         try {
             Transaction transaction = session.beginTransaction();
             User user = session.get(User.class,id);
@@ -94,13 +98,13 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public String getNextId() {
+        Session session = FactoryConfiguration.getInstance().getSession();
         try {
             String newId = "U000";
             Transaction transaction = session.beginTransaction();
             List list = session.createNativeQuery("select id from user order by id desc limit 1").list();
             if (!list.isEmpty()) newId = (String) list.get(0);
             transaction.commit();
-            session.close();
             return newId;
         } catch (HibernateException e) {
             e.printStackTrace();

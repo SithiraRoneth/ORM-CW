@@ -20,25 +20,19 @@ import java.util.List;
 @Table(name = "user")
 public class User {
     @Id
-    @Column(name = "id",length = 50)
-    private String id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "NIC")
-    private String nic;
     @Column(name = "e-mail")
     private String e_mail;
+    @Column(name = "name")
+    private String name;
     @Column(name = "password")
     private String pw;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "user")
-    private List<Transactions> reservations = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy =  "userList")
+    private List<Transactions> transactions = new ArrayList<>();
 
-    public User(String id, String name, String nic, String e_mail, String pw){
-        this.id = id;
-        this.name = name;
-        this.nic = nic;
-        this.e_mail = e_mail;
-        this.pw = pw;
-    }
+   public User(String email,String name,String pw){
+       this.e_mail = email;
+       this.name = name;
+       this.pw = pw;
+   }
 
 }

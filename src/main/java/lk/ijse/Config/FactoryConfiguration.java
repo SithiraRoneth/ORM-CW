@@ -6,10 +6,7 @@
 
 package lk.ijse.Config;
 
-import lk.ijse.Entity.Admin;
-import lk.ijse.Entity.Book;
-import lk.ijse.Entity.User;
-import lk.ijse.Entity.Transactions;
+import lk.ijse.Entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -36,6 +33,7 @@ public class FactoryConfiguration {
         configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Book.class);
         configuration.addAnnotatedClass(Transactions.class);
+        configuration.addAnnotatedClass(Branch.class);
 
         sessionFactory = configuration.buildSessionFactory();
     }

@@ -28,5 +28,10 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+      <ImageView fitHeight="31.0" fitWidth="42.0" layoutX="671.0" layoutY="376.0" onMouseClicked="#logoutOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/gif/logout.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

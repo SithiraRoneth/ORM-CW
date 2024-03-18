@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -22,22 +23,10 @@
             <Image url="@../assets/gif/bookCustomer.gif" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="cus_id" layoutX="40.0" layoutY="133.0" prefHeight="26.0" prefWidth="198.0" />
       <JFXTextField fx:id="name" layoutX="331.0" layoutY="133.0" prefHeight="26.0" prefWidth="198.0" />
-      <JFXTextField fx:id="address" layoutX="39.0" layoutY="226.0" prefHeight="26.0" prefWidth="198.0" />
-      <JFXTextField fx:id="contact" layoutX="331.0" layoutY="226.0" prefHeight="26.0" prefWidth="198.0" />
-      <JFXTextField fx:id="NIc" layoutX="609.0" layoutY="133.0" prefHeight="26.0" prefWidth="198.0" />
-      <Text layoutX="39.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <Text layoutX="39.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Text>
-      <Text layoutX="609.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC">
+      <JFXTextField fx:id="txtEmail" layoutX="43.0" layoutY="135.0" prefHeight="26.0" prefWidth="198.0" />
+      <JFXTextField fx:id="txtPw" layoutX="611.0" layoutY="133.0" prefHeight="26.0" prefWidth="198.0" />
+      <Text layoutX="43.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -47,22 +36,26 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="325.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+      <Text layoutX="605.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <TableView fx:id="tblCustomer" layoutX="43.0" layoutY="367.0" prefHeight="200.0" prefWidth="761.0">
+      <TableView fx:id="tblCustomer" layoutX="49.0" layoutY="315.0" prefHeight="250.0" prefWidth="762.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="colName" prefWidth="172.8000030517578" text="Name" />
-            <TableColumn fx:id="colNIC" prefWidth="127.20001220703125" text="NIC" />
-            <TableColumn fx:id="colAddress" prefWidth="192.79998779296875" text="Address" />
-            <TableColumn fx:id="colContact" prefWidth="193.60003662109375" text="Contact No." />
+          <TableColumn fx:id="colName" prefWidth="227.19999313354492" text="Email" />
+            <TableColumn fx:id="colAddress" prefWidth="291.2000732421875" text="Name" />
+            <TableColumn fx:id="colContact" prefWidth="243.19989013671875" text="Password" />
         </columns>
       </TableView>
-      <JFXButton layoutX="538.0" layoutY="294.0" onAction="#saveOnAction" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #6196A6; -fx-background-radius: 25;" text="Save" textFill="WHITE" />
-      <JFXButton layoutX="637.0" layoutY="293.0" onAction="#updateOnAction" prefHeight="38.0" prefWidth="70.0" style="-fx-background-radius: 25; -fx-background-color: #D2D180;" text="Update" textFill="#f2f2f2" />
-      <JFXButton layoutX="736.0" layoutY="293.0" onAction="#deleteOnAction" prefHeight="38.0" prefWidth="70.0" style="-fx-background-radius: 25; -fx-background-color: #D37676;" text="Delete" textFill="#f2f2f2" />
+      <JFXButton layoutX="540.0" layoutY="237.0" onAction="#saveOnAction" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #6196A6; -fx-background-radius: 25;" text="Save" textFill="WHITE" />
+      <JFXButton layoutX="639.0" layoutY="236.0" onAction="#updateOnAction" prefHeight="38.0" prefWidth="70.0" style="-fx-background-radius: 25; -fx-background-color: #D2D180;" text="Update" textFill="#f2f2f2" />
+      <JFXButton layoutX="738.0" layoutY="236.0" onAction="#deleteOnAction" prefHeight="38.0" prefWidth="70.0" style="-fx-background-radius: 25; -fx-background-color: #D37676;" text="Delete" textFill="#f2f2f2" />
+      <TextField fx:id="search" layoutX="345.0" layoutY="43.0" prefHeight="26.0" prefWidth="170.0" promptText="search" />
+      <JFXButton fx:id="btnSearch" layoutX="461.0" layoutY="43.0" onAction="#searchOnAction" style="-fx-background-color: blue;" text="Search" textFill="#f7f7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

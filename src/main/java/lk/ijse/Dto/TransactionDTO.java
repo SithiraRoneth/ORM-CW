@@ -13,19 +13,22 @@ import java.util.Date;
 @Setter
 public class TransactionDTO {
     private String transId;
-    private Date startDate;
-    private Date endDate;
+    private String startDate;
+    private String endDate;
     private String userId;
     private String bookId;
     private String status;
-    private String userName;
-    private String bookName;
 
-    public TransactionDTO(String id, Date startDate, Date endDate,User user,Book book){
+    public TransactionDTO(String id, String startDate, String endDate){
         this.transId = id;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.userId = String.valueOf(user);
-        this.bookId = String.valueOf(book);
+    }
+    public TransactionDTO(String id, String startDate, String endDate,String userId,String bookId){
+        this.transId = id;
+        this.startDate = startDate;
+        this.endDate = endDate;;
+        this.userId = userId;
+        this.bookId = bookId;
     }
 }

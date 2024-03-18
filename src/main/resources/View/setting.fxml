@@ -23,9 +23,9 @@
             <Image url="@../assets/gif/setting.gif" />
          </image>
       </ImageView>
-      <JFXTextField layoutX="479.0" layoutY="218.0" prefHeight="26.0" prefWidth="224.0" promptText="Current password" />
-      <JFXTextField layoutX="479.0" layoutY="294.0" prefHeight="26.0" prefWidth="224.0" promptText="New Password" />
-      <JFXTextField layoutX="479.0" layoutY="372.0" prefHeight="26.0" prefWidth="224.0" promptText="Re-Enter Password" />
-      <JFXButton layoutX="670.0" layoutY="451.0" prefHeight="33.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color:  #6196A6;" text="Save" textFill="WHITE" />
+      <JFXTextField fx:id="txtPw" layoutX="479.0" layoutY="218.0" prefHeight="26.0" prefWidth="224.0" promptText="Current password" />
+      <JFXTextField fx:id="txtNew" layoutX="479.0" layoutY="294.0" prefHeight="26.0" prefWidth="224.0" promptText="New Password" />
+      <JFXTextField fx:id="txtRe" layoutX="479.0" layoutY="372.0" prefHeight="26.0" prefWidth="224.0" promptText="Re-Enter Password" />
+      <JFXButton layoutX="670.0" layoutY="451.0" onAction="#saveOnAction" prefHeight="33.0" prefWidth="74.0" style="-fx-background-radius: 30; -fx-background-color:  #6196A6;" text="Save" textFill="WHITE" />
    </children>
 </AnchorPane>

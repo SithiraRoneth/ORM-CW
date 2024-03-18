@@ -17,10 +17,8 @@ public class UserBOImpl implements UserBO {
         List<UserDTO>userDTOS = new ArrayList<>();
         for (User user:userDAO.getAll()) {
             userDTOS.add(new UserDTO(
-                    user.getId(),
-                    user.getName(),
-                    user.getNic(),
                     user.getE_mail(),
+                    user.getName(),
                     user.getPw()
             ));
         }
@@ -31,10 +29,8 @@ public class UserBOImpl implements UserBO {
     public boolean saveUser(UserDTO userDTO) {
         return userDAO.save(
                 new User(
-                        userDTO.getId(),
-                        userDTO.getName(),
-                        userDTO.getNic(),
                         userDTO.getE_mail(),
+                        userDTO.getName(),
                         userDTO.getPw()
                 )
         );
@@ -44,10 +40,8 @@ public class UserBOImpl implements UserBO {
     public boolean updateUser(UserDTO userDTO) {
         return userDAO.update(
                 new User(
-                        userDTO.getId(),
-                        userDTO.getName(),
-                        userDTO.getNic(),
                         userDTO.getE_mail(),
+                        userDTO.getName(),
                         userDTO.getPw()
                 )
         );
@@ -58,10 +52,8 @@ public class UserBOImpl implements UserBO {
         User user = userDAO.getItem(cusId);
         if (user!=null) {
             return new UserDTO(
-                    user.getId(),
-                    user.getName(),
-                    user.getNic(),
                     user.getE_mail(),
+                    user.getName(),
                     user.getPw()
             );
         }

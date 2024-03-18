@@ -5,10 +5,7 @@
  * */
 package lk.ijse.DAO;
 
-import lk.ijse.DAO.Custom.Impl.BookDAOImpl;
-import lk.ijse.DAO.Custom.Impl.TransactionDAOImpl;
-import lk.ijse.DAO.Custom.Impl.UserDAOImpl;
-import lk.ijse.DAO.Custom.Impl.AdminDAOImpl;
+import lk.ijse.DAO.Custom.Impl.*;
 
 public class DAOFactory {
     private static DAOFactory factory;
@@ -21,7 +18,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        AdMIN,USER,BOOK,TRANSACTION
+        AdMIN,USER,BOOK,TRANSACTION,QUERY,BRANCH
     }
 
     public SuperDAO getDAO (DAOTypes daoTypes) {
@@ -34,6 +31,10 @@ public class DAOFactory {
                 return new BookDAOImpl();
             case TRANSACTION:
                 return new TransactionDAOImpl();
+            case QUERY:
+                return new QueryDAOImpl();
+            case BRANCH:
+                return new BranchDAOImpl();
             default:
                 return null;
         }

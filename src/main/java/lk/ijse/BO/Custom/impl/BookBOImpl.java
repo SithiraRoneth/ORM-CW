@@ -15,23 +15,31 @@ public class BookBOImpl implements BookBO {
     @Override
     public List<BookDTO> getAll() {
         List<BookDTO> bookDTOS = new ArrayList<>();
-        for (Book book : bookDAO.getAll()) {
-            bookDTOS.add(new BookDTO(
-                    book.getId(),
-                    book.getName(),
-                    book.getType()
-            ));
+        List<Book> books = bookDAO.getAll();
+        if (books != null) {
+            for (Book book : books) {
+                bookDTOS.add(new BookDTO(
+                        book.getId(),
+                        book.getTitle(),
+                        book.getGenre(),
+                        book.getAuthor(),
+                        book.getStatus()
+                ));
+            }
         }
         return bookDTOS;
     }
 
     @Override
     public boolean saveBook(BookDTO bookDTO) {
+        String status = "Available";
         return bookDAO.save(
                 new Book(
                         bookDTO.getId(),
-                        bookDTO.getName(),
-                        bookDTO.getType()
+                        bookDTO.getTitle(),
+                        bookDTO.getGenre(),
+                        bookDTO.getAuthor(),
+                        status
                 )
         );
     }
@@ -41,8 +49,9 @@ public class BookBOImpl implements BookBO {
         return bookDAO.update(
                 new Book(
                         bookDTO.getId(),
-                        bookDTO.getName(),
-                        bookDTO.getType()
+                        bookDTO.getTitle(),
+                        bookDTO.getGenre(),
+                        bookDTO.getAuthor()
                 )
         );
     }
@@ -53,8 +62,10 @@ public class BookBOImpl implements BookBO {
         if (book!=null) {
             return new BookDTO(
                     book.getId(),
-                    book.getName(),
-                    book.getType()
+                    book.getTitle(),
+                    book.getGenre(),
+                    book.getAuthor(),
+                    book.getStatus()
             );
         }
         return null;

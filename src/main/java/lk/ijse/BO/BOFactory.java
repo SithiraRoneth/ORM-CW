@@ -5,10 +5,7 @@
  * */
 package lk.ijse.BO;
 
-import lk.ijse.BO.Custom.impl.BookBOImpl;
-import lk.ijse.BO.Custom.impl.TransactionBOImpl;
-import lk.ijse.BO.Custom.impl.UserBOImpl;
-import lk.ijse.BO.Custom.impl.AdminBOImpl;
+import lk.ijse.BO.Custom.impl.*;
 
 public class BOFactory {
     private static BOFactory factory;
@@ -19,7 +16,7 @@ public class BOFactory {
         return factory == null ? factory= new BOFactory() : factory;
     }
     public enum BOTypes {
-        ADMIN,USER,BOOK,TRANSACTION
+        ADMIN,USER,BOOK,TRANSACTION,BRANCH
     }
 
     public SuperBO getBO(BOTypes boTypes) {
@@ -32,6 +29,8 @@ public class BOFactory {
                 return new BookBOImpl();
             case TRANSACTION:
                 return new TransactionBOImpl();
+            case BRANCH:
+                return new BranchBOImpl();
             default:
                 return null;
         }

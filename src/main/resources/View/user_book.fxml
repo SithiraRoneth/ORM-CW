@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,5 +13,14 @@
             <Image url="@../assets/gif/home.gif" />
          </image>
       </ImageView>
+      <TableView fx:id="tblBook" layoutX="72.0" layoutY="97.0" prefHeight="474.0" prefWidth="734.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="63.999969482421875" text="Book ID" />
+            <TableColumn fx:id="colName" prefWidth="171.99998474121094" text="Name" />
+            <TableColumn fx:id="colType" prefWidth="180.0" text="Type" />
+            <TableColumn fx:id="colAuthor" prefWidth="158.4000244140625" text="Author" />
+            <TableColumn fx:id="colStatus" prefWidth="158.4000244140625" text="Status" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
