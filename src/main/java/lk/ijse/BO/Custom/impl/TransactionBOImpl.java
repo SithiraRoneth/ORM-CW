@@ -153,4 +153,12 @@ public class TransactionBOImpl implements TransactionBO {
         }
         return transactionDTOS;
     }
+    @Override
+    public boolean updateTransaction(TransactionDTO transactionDTO,BookDTO bookDTO,UserDTO userDTO) {
+        String status = "Complete";
+        return transactionDAO.updateTransaction(
+                new Transactions(transactionDTO.getTransId(),transactionDTO.getStartDate(),transactionDTO.getEndDate(),transactionDTO.getUserId(),transactionDTO.getBookId(),status),
+                new Book(bookDTO.getId(),bookDTO.getTitle(), bookDTO.getAuthor(), bookDTO.getGenre()),
+                new User(userDTO.getE_mail(),userDTO.getName(),userDTO.getPw()));
+    }
 }

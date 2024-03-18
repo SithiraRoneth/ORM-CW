@@ -126,4 +126,38 @@ public class TransactionDAOImpl implements TransactionDAO {
             session.close();
         }
     }
+
+    @Override
+    public boolean updateTransaction(Transactions transactionsEntity, Book bookEntity, User userEntity) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        String status = "Available";
+        Transaction transaction = null;
+
+        try{
+            transaction = session.beginTransaction();
+            List<Transactions> transactions = new ArrayList<>();
+
+            transactionsEntity.setUserList(userEntity);
+            userEntity.setTransactions(transactions);
+
+            transactionsEntity.setBookList(bookEntity);
+            bookEntity.setTransactions(transactions);
+
+            transactions.add(transactionsEntity);
+            session.update(transactionsEntity);
+
+            session.createQuery("UPDATE Book b SET b.status = :status WHERE b.id = : book_id")
+                    .setParameter("status",status).setParameter("book_id",bookEntity.getId()).executeUpdate();
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            if (transaction!=null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
+    }
 }

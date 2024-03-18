@@ -8,4 +8,6 @@ import lk.ijse.Entity.User;
 public interface TransactionDAO extends CrudDAO<Transactions,String > {
     String getNextId();
     boolean saveTransaction(Transactions transactions, User users, Book books);
+
+    boolean updateTransaction(Transactions transactionsEntity, Book bookEntity, User userEntity);
 }

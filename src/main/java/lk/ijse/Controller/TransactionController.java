@@ -197,6 +197,7 @@ public class TransactionController {
         boolean isSaved = transactionBO.saveTransaction(transactionDTO, userDTO,bookDTO);
         if (isSaved){
             new Alert(Alert.AlertType.CONFIRMATION,"Transaction Successfully").show();
+            fillTable();
         }else {
            new Alert(Alert.AlertType.ERROR,"unsuccessfully").show();
         }

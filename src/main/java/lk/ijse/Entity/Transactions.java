@@ -44,4 +44,13 @@ public class Transactions {
        this.endDate = endDate;
 
     }
+    public Transactions(String id,String startDate,String endDate,String user,String book,String status) {
+        this.id = id;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.user = user;
+        this.book = book;
+        this.status = status;
+
+    }
 }

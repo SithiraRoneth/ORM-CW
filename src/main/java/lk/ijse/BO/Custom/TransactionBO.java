@@ -26,4 +26,6 @@ public interface TransactionBO extends SuperBO {
     TransactionDTO getTransaction(String id);
 
     List<TransactionDTO> getAllTransaction();
+
+    boolean updateTransaction(TransactionDTO transactionDTO, BookDTO bookDTO, UserDTO userDTO);
 }
